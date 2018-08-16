@@ -11,4 +11,5 @@
 ### Specifications
 * ### Follow instructions on what to input
 * ### Inputs for id and quantities are validated, with id, the app checks with the database if the id exists
+* ### On bamazonManager.js users can only choose existing departments, this is to avoid spelling mistakes
 * ### Only finished up to challenge 2
