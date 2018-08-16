@@ -37,7 +37,14 @@ function askProduct(){
     },
     {
         name: "quantity",
-        message: "How many would you like to buy?"
+        message: "How many would you like to buy?",
+        validate: function(value) {
+            var intValue = parseInt(value);
+            if(intValue && intValue > 0){
+                return true;
+            }
+            else return "Input a valid number amount";
+        }
     }]).then(function(response) {
         //console.log(checkquantity(response.id, response.quantity));
         var isEnough = checkquantity(response.id, response.quantity);
@@ -142,20 +149,5 @@ function displayTable(){
         }
         askProduct();
         //connection.end();
-    });
-}
-
-function insertIntoTable(){
-    connection.query("INSERT INTO products SET ?",
-    {
-        productName : "pencil",
-        price : 1
-    }, 
-    function(err,res){
-        if(err){
-            throw err;
-        }
-        console.log(JSON.stringify(res, null, 1));
-        //displayTable();
     });
 }

@@ -12,4 +12,5 @@ VALUES ("Wireless Mouse", "Electronics", 4.99, 248),
 ("Box of 50 Pens", "Office", 7.99, 89),
 ("5000 Staples", "Office", 7.87, 245);
 
+UPDATE products SET stock_quantity=3 WHERE item_id = 9;
 select * from products;
