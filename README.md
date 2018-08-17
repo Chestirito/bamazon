@@ -16,5 +16,5 @@
 * ### Only finished up to challenge 2
 
 ### Links
-* ### <a href="https://youtu.be/2m2FhjRbwvs" target="_blank">Bamazon Customer (Challenge 1)</a>
-* ### <a href="https://youtu.be/rITMjiFgrpE" target="_blank">Bamazon Manager (Challenge 2)</a>
+* ### [Bamazon Customer (Challenge 1)](https://youtu.be/2m2FhjRbwvs)
+* ### [Bamazon Manager (Challenge 2)](https://youtu.be/rITMjiFgrpE)
