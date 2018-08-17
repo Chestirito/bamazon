@@ -13,6 +13,7 @@
 * ### Aside from inquirer and mysql npm packages, I also used easy-table to format and display the data coming from the database
 * ### Inputs for id and quantities are validated, with id, the app checks with the database if the id exists
 * ### On bamazonManager.js users can only choose existing departments, this is to avoid spelling mistakes
+* ### The sql file to create  the database and table and the file to add mock data to the table are also included as "create-DB-table.sql" and "insertMockData.sql" respectively
 * ### Only finished up to challenge 2
 
 ### Youtube Links
