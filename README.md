@@ -15,6 +15,6 @@
 * ### On bamazonManager.js users can only choose existing departments, this is to avoid spelling mistakes
 * ### Only finished up to challenge 2
 
-### Links
+### Youtube Links
 * ### [Bamazon Customer (Challenge 1)](https://youtu.be/2m2FhjRbwvs)
 * ### [Bamazon Manager (Challenge 2)](https://youtu.be/rITMjiFgrpE)
