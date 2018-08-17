@@ -14,3 +14,7 @@
 * ### Inputs for id and quantities are validated, with id, the app checks with the database if the id exists
 * ### On bamazonManager.js users can only choose existing departments, this is to avoid spelling mistakes
 * ### Only finished up to challenge 2
+
+### Links
+* ### <a href="https://youtu.be/2m2FhjRbwvs" target="_blank">Bamazon Customer (Challenge 1)</a>
+* ### <a href="https://youtu.be/rITMjiFgrpE" target="_blank">Bamazon Manager (Challenge 2)</a>
