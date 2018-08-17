@@ -1,6 +1,6 @@
 var mysql = require("mysql");
 
-
+var Table = require('easy-table');
 var inquirer = require('inquirer');
 
 var connection = mysql.createConnection({
@@ -57,7 +57,7 @@ function askProduct(){
                 showTotal(response.id, response.quantity);
                 displayTable();
             }else{
-                console.log("Not enough items in stock, please try again");
+                console.log("\nNot enough items in stock, please try again\n");
                 askProduct();
             }
         }, handleErr)
@@ -113,9 +113,9 @@ function showTotal(id,boughtAmt){
                     throw(err);
                 }
                 var totalPrice = res[0].price * boughtAmt;
-                console.log("----------------------------------------------------------------")
+                console.log("\n----------------------------------------------------------------")
                 console.log("Your total for the purchase was: $" + totalPrice.toFixed(2));
-                console.log("----------------------------------------------------------------")
+                console.log("----------------------------------------------------------------\n")
             }
         );
 }
@@ -131,7 +131,7 @@ function updateTable(id, quantity){
             if(err){
                 throw (err);
             }
-            console.log("Table Updated");
+            console.log("\nTable Updated");
             //resolve();
         });
     
@@ -143,10 +143,20 @@ function displayTable(){
         if(err){
             throw err;
         }
-        console.log("ID |      PRODUCT NAME      | PRICE | STOCK");
+        var t = new Table;
+
+        res.forEach(function(item) {
+            t.cell('ID', item.item_id);
+            t.cell('Product Name', item.product_name);
+            t.cell('Price', item.price);
+            t.cell('Stock', item.stock_quantity);
+            t.newRow();
+        });
+        /*console.log("ID |      PRODUCT NAME      | PRICE | STOCK");
         for(var i = 0; i < res.length; i++){
             console.log(res[i].item_id +  "  |  " + res[i].product_name + "  |  " + res[i].price + "  |  " + res[i].stock_quantity);
-        }
+        }*/
+        console.log(t.toString());
         askProduct();
         //connection.end();
     });

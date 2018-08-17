@@ -1,6 +1,6 @@
 var mysql = require("mysql");
 
-
+var Table = require('easy-table');
 var inquirer = require('inquirer');
 
 var connection = mysql.createConnection({
@@ -24,7 +24,7 @@ function askAction(){
         message: "Choose an option: ",
         choices: ["View Products for Sale", 
         "View Low Inventory",
-        "Add to Inventory",
+        "Restock Inventory",
         "Add New Product"]
     })
     .then(function(response) {
@@ -34,7 +34,7 @@ function askAction(){
         else if(response.options === "View Low Inventory"){
             displayTable(true);
         }
-        else if(response.options === "Add to Inventory"){
+        else if(response.options === "Restock Inventory"){
             askProduct();
         }
         else if(response.options === "Add New Product"){
@@ -92,7 +92,7 @@ function askProduct(){
     inquirer.prompt(
         [{
             name: "id",
-            message: "Input the id of the product to add",
+            message: "Input the id of the product to restock",
             validate: function(value) {
                 var hasID = checkID(parseInt(value));
                 return hasID.then(function(result){
@@ -189,11 +189,23 @@ function displayTable(low){
         if(err){
             throw err;
         }
+
+        var t = new Table;
+
+        res.forEach(function(item) {
+            t.cell('ID', item.item_id);
+            t.cell('Product Name', item.product_name);
+            t.cell('Price', item.price);
+            t.cell('Stock', item.stock_quantity);
+            t.newRow();
+        });
+        /*
         console.log("ID |      PRODUCT NAME      | PRICE | STOCK");
         for(var i = 0; i < res.length; i++){
             console.log(res[i].item_id +  "  |  " + res[i].product_name + "  |  " + res[i].price + "  |  " + res[i].stock_quantity);
-        }
-        console.log("\n\n");
+        }*/
+        console.log(t.toString());
+        console.log("\n");
         askAction();
         //connection.end();
     });
@@ -213,7 +225,5 @@ function insertIntoTable(name, department, price, stock){
         }
 
         displayTable(false);
-        //askAction();
-        //displayTable();
     });
 }
